@@ -1,29 +1,43 @@
-# Docker Setup for Laravel Project
-
-This guide covers setting up your Laravel project using Docker for local development.
 
 Follow these steps:
 
-1. **Copy Files to Laravel Root Folder:**
+1. **first**
 
-    Copy all the Docker-related files to your Laravel project's root folder.
+   /etc/hosts -> add new -> 127.0.0.1   yourdomain.local
 
-2. **Create or Update .env File:**
+2. ```shell
+   /etc/apache2/site-available/ 000-default conf  copy to yourdomain.local.conf	
+		<VirtualHost *:80>
+  			  ServerName yourdomain.local
+			  DocumentRoot /path/to/your/laravel/project/public
+			 <Directory /path/to/your/laravel/project/public>
+			 Options Indexes FollowSymLinks
+			  AllowOverride All
+			 Require all granted
+			</Directory>
+		</VirtualHost>
+   ```
+3. 
+     ```shell
+       sudo a2ensite yourdomain.local.conf
+    ```
+4.
     ```shell
-    cp .env.docker .env
+   sudo a2enmod rewrite
     ```
 
-3. **Update Database Credentials:**
+5.
+```shell
+sudo systemctl restart apache2
+```
 
-    Open the `.env` file and update the database credentials to match your local environment.
+6. 
+```shell
+APP_URL=http://yourdomain.local
+```
 
-4. **Build the docker**
-    ```shell
-    docker compose build
-    ```
+7.
+```shell
+php artisan config:clear
+```
 
-4. **Run the docker**
-    ```shell
-    docker compose up 
-    ```
-That's it! Your Laravel project is now ready to run with Docker.

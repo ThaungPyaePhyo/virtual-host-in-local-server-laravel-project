@@ -37,7 +37,7 @@ Follow these steps:
 	```
 
 7.
-```shell
-php artisan config:clear
-```
+	```shell
+	php artisan config:clear
+	```
 

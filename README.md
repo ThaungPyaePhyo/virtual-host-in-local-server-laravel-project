@@ -27,14 +27,14 @@ Follow these steps:
     ```
 
 5.
-```shell
-sudo systemctl restart apache2
-```
+	```shell
+	sudo systemctl restart apache2
+	```
 
 6. 
-```shell
-APP_URL=http://yourdomain.local
-```
+	```shell
+	APP_URL=http://yourdomain.local
+	```
 
 7.
 ```shell

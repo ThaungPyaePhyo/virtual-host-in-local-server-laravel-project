@@ -19,7 +19,7 @@ Follow these steps:
    ```
 3. 
      ```shell
-       sudo a2ensite yourdomain.local.conf
+    sudo a2ensite yourdomain.local.conf
     ```
 4.
     ```shell
